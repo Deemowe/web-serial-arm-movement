@@ -1,29 +1,15 @@
-// by \x6b\x69\x72\x61
+// #include <SPI.h> // Comment out when using i2c
+#include <Wire.h>
 #include <Servo.h>
-Servo gripper;
-Servo wrist;
-Servo elbow;
-Servo shoulder;
 Servo base;
-
 double base_angle=90;
-double shoulder_angle=90;
-double elbow_angle=90;
-double wrist_angle=90;
+const int DELAY_MS = 5;
 
 
 void setup() {
- Serial.begin(115200);
+ Serial.begin(9600);
    base.attach(8);
-  shoulder.attach(9); 
-  elbow.attach(10);
-  wrist.attach(11);
-  gripper.attach(12); 
-
   base.write(base_angle);
-  shoulder.write(shoulder_angle);
-  elbow.write(elbow_angle);
-  wrist.write(wrist_angle);
 
 }
 
@@ -48,30 +34,35 @@ String getValue(String data, char separator, int index)
 
 void loop() {
   
-  String computerText = Serial.readStringUntil('@');
-  computerText.trim();
-  if (computerText.length() == 0) {
+  // Check to see if there is any incoming serial data
+  if(Serial.available() > 0){
+    // If we're here, then serial data has been received
+    // Read data off the serial port until we get to the endline delimiter ('\n')
+    // Store all of this data into a string
+    String rcvdSerialData = Serial.readStringUntil('\n'); 
+    
+  rcvdSerialData.trim();
+  if (rcvdSerialData.length() == 0) {
     return;
   }
   // 92-0-130
-  String command = getValue(computerText, ' ',0);
+  String command = getValue(rcvdSerialData, ' ',0);
 
-    if (command == "right" || command == "رايت" || command == "Right") {
-      base.write(base_angle -= 20);
+    if (command == "يمين" ) {
+      base.write(base_angle  = 0);
     }
-    if (command == "left" || command == "Left" || command == "لفت") {
-     base.write(base_angle += 20);
-    }
-
-    if (command == "top" || command == "توب" || command == "Top") {
-      shoulder.write(shoulder_angle -= 20);
+    if (command == "يسار") {
+     base.write(base_angle =180);
     }
 
-   if (command == "bottom"|| command == "بوتوم" || command == "Bottom") {
-     shoulder.write(shoulder_angle += 20);
+       // Echo the data back on serial (for debugging purposes)
+    // This is not necessary but helpful. Then the webpage can
+    // display this debug output (if necessary)
+    Serial.print("Arduino received: '");
+    Serial.print(rcvdSerialData);
+    Serial.println("'");
     }
-    Serial.println(command);
-  Serial.println("WORKING");
-  delay(1000);
+ 
+  delay(DELAY_MS);
 
 }
