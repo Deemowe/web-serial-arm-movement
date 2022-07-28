@@ -73,7 +73,7 @@ async function serialWriteTextData(textData) {
 * Make sure that the browser language is set to Arabic.
 * Required to install [Arduino IDE](https://github.com/Deemowe/task1/tree/main/Wasdom%20ESP32%20link%20steps)
 * After the text appears, you need to press **Space** to submit the text!
-* The serial device is not available so the text in **استجابة الذراع** will not appear :(
+* The serial device is not available so the text in **استجابة الذراع** will not appear!
 
 
 
