@@ -1,0 +1,33 @@
+body{
+ background-image: url(../images/arm.png);
+  background-repeat: no-repeat;
+  background-size: 600px 800px;
+  background-attachment: fixed;
+  background-position:left;
+}
+
+
+
+
+
+
+
+.neon {
+  color: #fff;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #eb514c,
+    0 0 80px #eb514c,
+    0 0 90px #eb514c,
+    0 0 100px #eb514c,
+    0 0 150px #eb514c;
+}
+
+
+#demo {
+  font-weight: 600;
+  text-align: center;
+  color:#d9d9d9
+}
