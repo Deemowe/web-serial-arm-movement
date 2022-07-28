@@ -12,12 +12,7 @@
 // 2. Open the dev console (cmd-option-i on Mac or ctrl-shift-i on Windows) and type: > navigator.serial
 // 3. If you see something like "Serial {onconnect:null, ondisconnect: null}" then it worked!
 //    If, instead, it says "undefined" then it didn't work. Try restarting your computer and then Chrome.
-//
-// TODOs:
-//  - Support binary in addition to text
-//
-// By Jon E. Froehlich
-// http://makeabilitylab.io/
+
 
 
 const SerialEvents = Object.freeze({
