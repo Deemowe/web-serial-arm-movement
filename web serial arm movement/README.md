@@ -79,7 +79,7 @@ async function serialWriteTextData(textData) {
 
 ## Preview 
 Watch the video:
-[![Watch the video](https://img.youtube.com/vi/zYXD49knm1w/maxresdefault.jpg)](https://youtu.be/zYXD49knm1w)
+[![Watch the video](https://img.youtube.com/vi/KDDT_Z-0bmk/maxresdefault.jpg)](https://youtu.be/KDDT_Z-0bmk)
 
 # Learning References 
 * [Read from and write to a serial port](https://web.dev/serial/#open-port)
